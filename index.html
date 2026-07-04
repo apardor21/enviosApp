@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Seguimiento de Pedidos</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="pedidos.js"></script>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            🚚
+        </div>
+
+        <div>
+            <h1>Rastrea tu pedido LogiCosta S.A.S</h1>
+            <p>Portal de Seguimiento de Pedidos</p>
+        </div>
+
+    </header>
+
+    <main>
+
+        <!-- DASHBOARD -->
+
+        <section class="dashboard">
+
+            <div class="card-mini">
+                <h3 id="totalPedidos">100</h3>
+                <span>Pedidos</span>
+            </div>
+
+            <div class="card-mini verde">
+                <h3>46</h3>
+                <span>Entregados</span>
+            </div>
+
+            <div class="card-mini azul">
+                <h3>21</h3>
+                <span>En reparto</span>
+            </div>
+
+            <div class="card-mini naranja">
+                <h3>18</h3>
+                <span>En tránsito</span>
+            </div>
+
+            <div class="card-mini rojo">
+                <h3>15</h3>
+                <span>Pendientes</span>
+            </div>
+
+        </section>
+
+        <!-- BUSCADOR -->
+
+        <section class="buscador">
+
+            <input
+                type="text"
+                id="guia"
+                placeholder="Ejemplo: PED-0001">
+
+            <button onclick="consultarPedido()">
+                 Consultar
+            </button>
+
+            <button class="limpiar" onclick="limpiar()">
+                Limpiar
+            </button>
+
+        </section>
+
+        <!-- MENSAJE -->
+
+        <div id="mensaje"></div>
+
+        <!-- TARJETA -->
+
+        <section id="resultado" class="card oculto">
+
+            <div class="titulo-card">
+
+                <div>
+
+                    <h2 id="numeroPedido"></h2>
+
+                    <span id="estado"></span>
+
+                </div>
+
+                <div id="badgeEstado" class="badge"></div>
+
+            </div>
+
+            <div class="grid">
+
+                <div>
+                    <strong>Cliente</strong>
+                    <p id="cliente"></p>
+                </div>
+
+                <div>
+                    <strong>Empresa</strong>
+                    <p id="empresa"></p>
+                </div>
+
+                <div>
+                    <strong>Origen</strong>
+                    <p id="origen"></p>
+                </div>
+
+                <div>
+                    <strong>Destino</strong>
+                    <p id="destino"></p>
+                </div>
+
+                <div>
+                    <strong>Dirección</strong>
+                    <p id="direccion"></p>
+                </div>
+
+                <div>
+                    <strong>Fecha envío</strong>
+                    <p id="fechaEnvio"></p>
+                </div>
+
+                <div>
+                    <strong>Entrega estimada</strong>
+                    <p id="fechaEntrega"></p>
+                </div>
+
+                <div>
+                    <strong>Prioridad</strong>
+                    <p id="prioridad"></p>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <h3>Información del Transporte</h3>
+
+            <div class="grid">
+
+                <div>
+                    <strong>Conductor</strong>
+                    <p id="conductor"></p>
+                </div>
+
+                <div>
+                    <strong>Vehículo</strong>
+                    <p id="vehiculo"></p>
+                </div>
+
+                <div>
+                    <strong>Placa</strong>
+                    <p id="placa"></p>
+                </div>
+
+                <div>
+                    <strong>Teléfono</strong>
+                    <p id="telefono"></p>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <h3>Progreso del Pedido</h3>
+
+            <div class="barra">
+
+                <div id="progreso" class="progreso">
+
+                </div>
+
+            </div>
+
+            <h2 id="porcentaje"></h2>
+
+            <div class="timeline">
+
+                <div class="step" id="s1">
+                    <br>
+                    Pedido
+                </div>
+
+                <div class="step" id="s2">
+                    <br>
+                    Preparación
+                </div>
+
+                <div class="step" id="s3">
+                    <br>
+                    Despacho
+                </div>
+
+                <div class="step" id="s4">
+                    <br>
+                    Tránsito
+                </div>
+
+                <div class="step" id="s5">
+                    📍<br>
+                    Reparto
+                </div>
+
+                <div class="step" id="s6">
+                    <br>
+                    Entregado
+                </div>
+
+            </div>
+
+            <hr>
+
+            <h3>Historial</h3>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Hora</th>
+
+                        <th>Evento</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="historial">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        Sistema de Seguimiento de Pedidos © 2026
+
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
